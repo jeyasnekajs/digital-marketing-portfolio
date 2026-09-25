@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
-
 /* =========================================================
-   ROOT
+   JEYASNEKA G — DIGITAL MARKETING PORTFOLIO
+   FINAL STYLE.CSS
 ========================================================= */
 
 :root {
@@ -14,23 +12,17 @@
     --soft-lavender: #F5F3FF;
 
     --dark: #171323;
-    --dark-2: #1E182C;
+    --dark-card: #211A31;
 
     --white: #FFFFFF;
-    --text: #EDE9F7;
-    --muted: #B9B1C9;
+    --text: #E9E4F2;
+    --muted: #AAA1BA;
 
     --border: rgba(167, 139, 250, 0.18);
 
-    --card-bg: rgba(31, 25, 48, 0.72);
+    --container: 1180px;
 
-    --transition: all 0.35s ease;
-
-    --shadow:
-        0 20px 60px rgba(0, 0, 0, 0.30);
-
-    --glow:
-        0 0 45px rgba(124, 58, 237, 0.18);
+    --transition: 0.35s ease;
 }
 
 
@@ -51,62 +43,41 @@ html {
 
 body {
     font-family: "DM Sans", sans-serif;
-
     color: var(--text);
-
+    background: var(--dark);
     line-height: 1.7;
-
-    background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(124, 58, 237, 0.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 25%,
-            rgba(91, 33, 182, 0.12),
-            transparent 32%
-        ),
-        var(--dark);
-
     overflow-x: hidden;
 }
 
 body::before {
     content: "";
-
     position: fixed;
-
     inset: 0;
 
-    background-image:
-        linear-gradient(
-            rgba(255, 255, 255, 0.014) 1px,
-            transparent 1px
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124, 58, 237, 0.13),
+            transparent 28%
         ),
-        linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.014) 1px,
-            transparent 1px
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(91, 33, 182, 0.12),
+            transparent 30%
         );
 
-    background-size: 45px 45px;
-
     pointer-events: none;
-
     z-index: -1;
 }
 
 a {
-    color: inherit;
-
     text-decoration: none;
+    color: inherit;
 }
 
 img {
-    max-width: 100%;
-
     display: block;
+    max-width: 100%;
 }
 
 button,
@@ -115,21 +86,26 @@ textarea {
     font-family: inherit;
 }
 
+::selection {
+    background: var(--purple);
+    color: var(--white);
+}
+
 
 /* =========================================================
-   COMMON
+   COMMON CONTAINER
 ========================================================= */
+
+.section-container,
+.nav-container,
+.footer-container {
+    width: min(var(--container), calc(100% - 80px));
+    margin: 0 auto;
+}
 
 .section {
     padding: 110px 0;
-
     position: relative;
-}
-
-.section-container {
-    width: min(1180px, 92%);
-
-    margin: auto;
 }
 
 
@@ -139,41 +115,29 @@ textarea {
 
 .section-heading {
     text-align: center;
-
-    margin-bottom: 60px;
+    margin-bottom: 55px;
 }
 
 .section-number {
     color: var(--light-purple);
-
-    font-size: 12px;
-
+    font-size: 11px;
     font-weight: 700;
-
-    letter-spacing: 2px;
-
+    letter-spacing: 2.5px;
     margin-bottom: 10px;
 }
 
 .section-heading h2 {
     color: var(--white);
-
     font-family: "Playfair Display", serif;
-
-    font-size: clamp(35px, 5vw, 52px);
-
+    font-size: clamp(34px, 4vw, 52px);
     line-height: 1.2;
 }
 
 .section-subtitle {
-    max-width: 720px;
-
-    margin: 18px auto 0;
-
+    max-width: 700px;
+    margin: 16px auto 0;
     color: var(--muted);
-
     font-size: 14px;
-
     line-height: 1.8;
 }
 
@@ -184,27 +148,20 @@ textarea {
 
 .navbar {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
-
     height: 78px;
 
     display: flex;
-
     align-items: center;
 
-    background:
-        rgba(23, 19, 35, 0.78);
+    background: rgba(23, 19, 35, 0.78);
 
     backdrop-filter: blur(18px);
-
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom:
-        1px solid rgba(237, 233, 254, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 
     z-index: 9999;
 
@@ -212,27 +169,16 @@ textarea {
 }
 
 .nav-container {
-    width: min(1250px, 92%);
-
-    margin: auto;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 }
 
 .logo {
     color: var(--white);
-
-    font-size: 20px;
-
+    font-size: 19px;
     font-weight: 700;
-
     letter-spacing: 1px;
-
-    white-space: nowrap;
 }
 
 .logo span {
@@ -241,10 +187,8 @@ textarea {
 
 .nav-menu {
     display: flex;
-
     align-items: center;
-
-    gap: 27px;
+    gap: 25px;
 }
 
 .nav-menu a {
@@ -252,11 +196,9 @@ textarea {
 
     color: var(--muted);
 
-    font-size: 11px;
-
-    font-weight: 600;
-
-    letter-spacing: 0.5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
 
     transition: var(--transition);
 }
@@ -265,7 +207,6 @@ textarea {
     content: "";
 
     position: absolute;
-
     left: 0;
     bottom: -8px;
 
@@ -290,8 +231,7 @@ textarea {
 .menu-toggle {
     display: none;
 
-    border: none;
-
+    border: 0;
     background: transparent;
 
     color: var(--white);
@@ -307,29 +247,23 @@ textarea {
 ========================================================= */
 
 .btn {
+    min-height: 48px;
+
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
     gap: 9px;
 
-    min-height: 48px;
-
-    padding: 0 23px;
+    padding: 0 22px;
 
     border-radius: 8px;
 
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 700;
-
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
 
     transition: var(--transition);
-
-    cursor: pointer;
 }
 
 .btn-primary {
@@ -345,31 +279,28 @@ textarea {
     border: 1px solid transparent;
 
     box-shadow:
-        0 10px 30px rgba(124, 58, 237, 0.25);
+        0 12px 30px rgba(124, 58, 237, 0.25);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 40px rgba(124, 58, 237, 0.40);
+        0 18px 40px rgba(124, 58, 237, 0.38);
 }
 
 .btn-outline {
     color: var(--lavender);
 
-    background:
-        rgba(124, 58, 237, 0.05);
+    background: rgba(124, 58, 237, 0.04);
 
-    border:
-        1px solid rgba(167, 139, 250, 0.28);
+    border: 1px solid rgba(167, 139, 250, 0.28);
 }
 
 .btn-outline:hover {
     color: var(--white);
 
-    background:
-        rgba(124, 58, 237, 0.14);
+    background: rgba(124, 58, 237, 0.13);
 
     border-color: var(--purple);
 
@@ -384,68 +315,56 @@ textarea {
 .hero-section {
     min-height: 100vh;
 
-    padding-top: 145px;
-
-    padding-bottom: 80px;
+    padding: 140px 0 80px;
 
     display: flex;
-
     align-items: center;
 }
 
 .hero-container {
-    width: min(1180px, 92%);
-
-    margin: auto;
+    width: min(var(--container), calc(100% - 80px));
+    margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns:
-        1.08fr 0.92fr;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
 
-    gap: 65px;
+    gap: 70px;
 
     align-items: center;
 }
 
 .hero-content {
-    position: relative;
-
-    z-index: 2;
+    min-width: 0;
 }
 
 .hero-intro {
     color: var(--lavender);
 
     font-size: 14px;
-
     font-weight: 600;
 
     letter-spacing: 2px;
 
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .hero-content h1 {
     color: var(--white);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family: "Playfair Display", serif;
 
-    font-size:
-        clamp(50px, 6vw, 76px);
+    font-size: clamp(52px, 6vw, 78px);
 
-    line-height: 1.02;
+    line-height: 1.05;
 
-    margin-bottom: 13px;
+    margin-bottom: 12px;
 }
 
 .hero-content h2 {
     color: var(--light-purple);
 
-    font-size:
-        clamp(20px, 3vw, 29px);
+    font-size: clamp(20px, 2.5vw, 28px);
 
     font-weight: 700;
 
@@ -458,7 +377,6 @@ textarea {
     color: var(--lavender);
 
     font-size: 18px;
-
     font-weight: 500;
 
     margin-bottom: 22px;
@@ -475,12 +393,11 @@ textarea {
 }
 
 .hero-highlight {
-    margin-top: 21px;
+    margin-top: 20px;
 
     color: var(--lavender);
 
     font-size: 12px;
-
     font-weight: 600;
 }
 
@@ -492,24 +409,23 @@ textarea {
     width: 7px;
     height: 7px;
 
-    margin-right: 9px;
+    margin-right: 8px;
 
     border-radius: 50%;
 
     background: var(--purple);
 
     box-shadow:
-        0 0 15px rgba(124, 58, 237, 0.8);
+        0 0 14px rgba(124, 58, 237, 0.9);
 }
 
 .hero-buttons {
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 14px;
+    gap: 13px;
 
-    margin-top: 30px;
+    margin-top: 29px;
 }
 
 
@@ -520,21 +436,19 @@ textarea {
 .hero-visual {
     position: relative;
 
+    width: 100%;
     min-height: 550px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
 .video-glow {
     position: absolute;
 
-    width: 450px;
-
-    height: 450px;
+    width: 430px;
+    height: 430px;
 
     border-radius: 50%;
 
@@ -545,48 +459,44 @@ textarea {
             transparent 68%
         );
 
-    filter: blur(16px);
+    filter: blur(15px);
 
     z-index: 0;
 }
 
 .hero-video {
     position: relative;
-
     z-index: 2;
 
     display: block;
 
     width: min(430px, 100%);
-
-    height: 545px;
+    height: 550px;
 
     object-fit: cover;
 
-    border-radius: 22px;
+    border-radius: 24px;
+
+    background: var(--dark-card);
 
     border:
         1px solid rgba(167, 139, 250, 0.28);
 
-    background: var(--dark-2);
-
     box-shadow:
-        0 30px 80px rgba(0, 0, 0, 0.45),
-        0 0 60px rgba(124, 58, 237, 0.15);
+        0 30px 70px rgba(0, 0, 0, 0.40),
+        0 0 55px rgba(124, 58, 237, 0.13);
 
-    animation:
-        videoFloat 5s ease-in-out infinite;
+    animation: heroFloat 5s ease-in-out infinite;
 }
 
-@keyframes videoFloat {
-
+@keyframes heroFloat {
     0%,
     100% {
         transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-9px);
     }
 }
 
@@ -598,8 +508,7 @@ textarea {
 .about-grid {
     display: grid;
 
-    grid-template-columns:
-        0.85fr 1.15fr;
+    grid-template-columns: 0.8fr 1.2fr;
 
     gap: 70px;
 
@@ -608,41 +517,42 @@ textarea {
 
 .about-image-wrapper {
     display: flex;
-
     justify-content: center;
-
-    position: relative;
 }
 
 .about-image-frame {
     position: relative;
 
-    width: min(410px, 100%);
+    width: min(400px, 100%);
 
-    padding: 12px;
+    padding: 11px;
 
     border-radius: 18px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(124, 58, 237, 0.18),
-            rgba(91, 33, 182, 0.04)
+            rgba(124, 58, 237, 0.16),
+            rgba(91, 33, 182, 0.03)
         );
 
     border:
-        1px solid var(--border);
+        1px solid rgba(167, 139, 250, 0.20);
 }
 
-.about-image-frame::before {
+.about-image-frame::after {
     content: "";
 
     position: absolute;
 
-    inset: 18px -12px -12px 18px;
+    left: 18px;
+    bottom: -12px;
+
+    width: 100%;
+    height: 100%;
 
     border:
-        1px solid rgba(167, 139, 250, 0.30);
+        1px solid rgba(167, 139, 250, 0.22);
 
     border-radius: 18px;
 
@@ -651,14 +561,13 @@ textarea {
 
 .about-image-frame img {
     width: 100%;
-
     height: 500px;
 
     object-fit: cover;
 
     border-radius: 12px;
 
-    background: var(--dark-2);
+    background: var(--dark-card);
 }
 
 .about-content p {
@@ -673,15 +582,11 @@ textarea {
 
 
 /* =========================================================
-   SKILLS SECTION
+   SKILLS
 ========================================================= */
 
 .skills-section {
     overflow: hidden;
-}
-
-.skills-section .section-container {
-    display: block;
 }
 
 .skills-grid {
@@ -708,8 +613,8 @@ textarea {
     background:
         linear-gradient(
             145deg,
-            rgba(124, 58, 237, 0.10),
-            rgba(31, 25, 48, 0.84)
+            rgba(124, 58, 237, 0.11),
+            rgba(31, 25, 48, 0.88)
         );
 
     border:
@@ -719,7 +624,10 @@ textarea {
 
     overflow: hidden;
 
-    transition: var(--transition);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .skill-card::before {
@@ -746,27 +654,22 @@ textarea {
     transform: translateY(-7px);
 
     border-color:
-        rgba(167, 139, 250, 0.45);
+        rgba(167, 139, 250, 0.43);
 
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.30),
-        0 0 35px rgba(124, 58, 237, 0.15);
+        0 20px 45px rgba(0, 0, 0, 0.28),
+        0 0 35px rgba(124, 58, 237, 0.13);
 }
 
 .skill-card-icon {
     width: 50px;
-
     height: 50px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    margin-bottom: 20px;
-
-    border-radius: 12px;
+    margin-bottom: 19px;
 
     color: var(--white);
 
@@ -777,17 +680,18 @@ textarea {
             var(--purple)
         );
 
-    font-size: 19px;
+    border-radius: 12px;
+
+    font-size: 18px;
 
     box-shadow:
-        0 10px 25px rgba(124, 58, 237, 0.20);
+        0 10px 25px rgba(124, 58, 237, 0.22);
 }
 
 .skill-card h3 {
     color: var(--white);
 
-    font-size: 18px;
-
+    font-size: 17px;
     font-weight: 700;
 
     line-height: 1.4;
@@ -800,15 +704,14 @@ textarea {
 
     flex-wrap: wrap;
 
-    gap: 9px;
+    gap: 8px;
 }
 
 .skill-tags span {
     display: inline-flex;
-
     align-items: center;
 
-    padding: 8px 12px;
+    padding: 8px 11px;
 
     color: var(--lavender);
 
@@ -816,11 +719,13 @@ textarea {
         rgba(124, 58, 237, 0.08);
 
     border:
-        1px solid rgba(167, 139, 250, 0.15);
+        1px solid rgba(167, 139, 250, 0.14);
 
     border-radius: 7px;
 
-    font-size: 11px;
+    font-size: 10px;
+
+    line-height: 1.4;
 
     transition: var(--transition);
 }
@@ -837,12 +742,10 @@ textarea {
 
 .skill-languages {
     display: flex;
-
+    align-items: center;
     flex-wrap: wrap;
 
-    align-items: center;
-
-    gap: 8px;
+    gap: 7px;
 
     margin-top: 18px;
 }
@@ -850,11 +753,11 @@ textarea {
 .skill-languages strong {
     color: var(--light-purple);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .skill-languages span {
-    padding: 6px 10px;
+    padding: 5px 9px;
 
     color: var(--lavender);
 
@@ -866,12 +769,12 @@ textarea {
 
     border-radius: 6px;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
 /* =========================================================
-   TOOLS
+   TOOLS LOGO SCROLLER
 ========================================================= */
 
 .tools-area {
@@ -891,11 +794,10 @@ textarea {
 .tools-heading p {
     color: var(--light-purple);
 
-    font-size: 13px;
-
+    font-size: 12px;
     font-weight: 700;
 
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
 }
 
 .tools-slider {
@@ -914,7 +816,7 @@ textarea {
     gap: 18px;
 
     animation:
-        logoScroll 40s linear infinite;
+        toolsScroll 42s linear infinite;
 }
 
 .tools-track:hover {
@@ -927,19 +829,17 @@ textarea {
     min-height: 125px;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    gap: 12px;
+    gap: 11px;
 
-    padding: 18px 12px;
+    padding: 17px 12px;
 
     background:
-        rgba(31, 25, 48, 0.80);
+        rgba(31, 25, 48, 0.84);
 
     border:
         1px solid rgba(167, 139, 250, 0.17);
@@ -953,46 +853,44 @@ textarea {
     transform: translateY(-6px);
 
     border-color:
-        rgba(167, 139, 250, 0.45);
+        rgba(167, 139, 250, 0.43);
 
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.25),
-        0 0 30px rgba(124, 58, 237, 0.14);
+        0 0 28px rgba(124, 58, 237, 0.13);
 }
 
 .tool-item img {
     width: 50px;
-
     height: 50px;
 
     object-fit: contain;
 
-    border-radius: 10px;
+    padding: 4px;
 
-    padding: 5px;
+    border-radius: 9px;
 
     background:
         rgba(255, 255, 255, 0.04);
 
-    transition:
-        transform 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .tool-item:hover img {
-    transform: scale(1.10);
+    transform: scale(1.08);
 }
 
 .tool-item span {
     color: var(--lavender);
 
-    font-size: 11px;
+    font-size: 10px;
 
     line-height: 1.35;
 
     text-align: center;
 }
 
-@keyframes logoScroll {
+@keyframes toolsScroll {
 
     from {
         transform: translateX(0);
@@ -1011,38 +909,43 @@ textarea {
 .experience-timeline {
     max-width: 950px;
 
-    margin: auto;
-}
-
-.experience-timeline::before {
-    display: none;
+    margin: 0 auto;
 }
 
 .experience-card {
-    display: block;
+    position: relative;
 
-    margin-bottom: 25px;
+    display: grid;
+
+    grid-template-columns: 1fr;
 
     padding: 32px;
 
+    margin-bottom: 24px;
+
     background:
-        rgba(31, 25, 48, 0.74);
+        linear-gradient(
+            145deg,
+            rgba(124, 58, 237, 0.08),
+            rgba(31, 25, 48, 0.80)
+        );
 
     border:
         1px solid var(--border);
 
-    border-radius: 17px;
+    border-radius: 16px;
 
     transition: var(--transition);
 }
 
 .experience-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 
     border-color:
         rgba(167, 139, 250, 0.42);
 
-    box-shadow: var(--glow);
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.25);
 }
 
 .experience-number {
@@ -1052,32 +955,28 @@ textarea {
 .experience-role {
     color: var(--light-purple);
 
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 700;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1.8px;
 
-    margin-bottom: 6px;
+    margin-bottom: 7px;
 }
 
 .experience-content h3 {
     color: var(--white);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family: "Playfair Display", serif;
 
-    font-size: 25px;
+    font-size: 26px;
 
-    line-height: 1.3;
+    line-height: 1.35;
 
-    margin-bottom: 12px;
+    margin-bottom: 13px;
 }
 
 .experience-meta {
     display: flex;
-
     flex-wrap: wrap;
 
     gap: 20px;
@@ -1088,13 +987,13 @@ textarea {
 .experience-meta span {
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .experience-meta i {
     color: var(--light-purple);
 
-    margin-right: 6px;
+    margin-right: 5px;
 }
 
 .experience-content > p {
@@ -1107,17 +1006,15 @@ textarea {
 
 .certificate-link {
     display: inline-flex;
-
     align-items: center;
 
     gap: 8px;
 
-    margin-top: 20px;
+    margin-top: 19px;
 
     color: var(--light-purple);
 
-    font-size: 12px;
-
+    font-size: 10px;
     font-weight: 700;
 
     transition: var(--transition);
@@ -1131,16 +1028,15 @@ textarea {
 
 .experience-skills {
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 9px;
+    gap: 8px;
 
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .experience-skills span {
-    padding: 7px 12px;
+    padding: 7px 11px;
 
     color: var(--lavender);
 
@@ -1152,7 +1048,7 @@ textarea {
 
     border-radius: 7px;
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 
@@ -1161,17 +1057,16 @@ textarea {
 ========================================================= */
 
 .project-category {
-    margin-bottom: 65px;
+    margin-bottom: 60px;
 }
 
 .project-category-header {
     display: flex;
-
     align-items: center;
 
     gap: 15px;
 
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 .project-category-header > span {
@@ -1181,19 +1076,17 @@ textarea {
 .project-category-header h3 {
     color: var(--white);
 
-    font-size: 21px;
-
+    font-size: 19px;
     font-weight: 700;
+
+    white-space: nowrap;
 }
 
 .project-category-header::after {
     content: "";
 
-    flex: 1;
-
+    width: 100%;
     height: 1px;
-
-    margin-left: 10px;
 
     background:
         linear-gradient(
@@ -1213,90 +1106,77 @@ textarea {
 }
 
 .project-card {
-    position: relative;
-
-    min-height: 230px;
-
-    padding: 28px;
+    min-height: 225px;
 
     display: flex;
-
     flex-direction: column;
+
+    padding: 27px;
 
     background:
         linear-gradient(
             145deg,
             rgba(124, 58, 237, 0.08),
-            rgba(31, 25, 48, 0.75)
+            rgba(31, 25, 48, 0.78)
         );
 
     border:
         1px solid var(--border);
 
-    border-radius: 16px;
-
-    overflow: hidden;
+    border-radius: 15px;
 
     transition: var(--transition);
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
 
     border-color:
         rgba(167, 139, 250, 0.42);
 
-    box-shadow: var(--glow);
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.26);
 }
 
 .project-card-top {
     color: var(--light-purple);
 
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 700;
 
-    letter-spacing: 1.5px;
+    letter-spacing: 1.6px;
 
-    margin-bottom: 25px;
+    margin-bottom: 23px;
 }
 
 .project-card h4 {
     color: var(--white);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family: "Playfair Display", serif;
 
-    font-size: 22px;
+    font-size: 21px;
 
-    margin-bottom: 10px;
+    margin-bottom: 9px;
 }
 
 .project-card p {
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12px;
 
-    line-height: 1.7;
+    line-height: 1.75;
 }
 
 .project-status {
-    display: inline-flex;
-
-    align-self: flex-start;
-
     margin-top: auto;
-
-    padding-top: 20px;
+    padding-top: 18px;
 
     color: var(--light-purple);
 
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 700;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
 .coming-soon {
@@ -1310,37 +1190,35 @@ textarea {
     border:
         1px dashed rgba(167, 139, 250, 0.25);
 
-    border-radius: 17px;
+    border-radius: 16px;
 }
 
 .coming-soon i {
     color: var(--light-purple);
 
-    font-size: 30px;
+    font-size: 29px;
 
-    margin-bottom: 15px;
+    margin-bottom: 13px;
 }
 
 .coming-soon h4 {
     color: var(--white);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family: "Playfair Display", serif;
 
     font-size: 24px;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .coming-soon p {
-    max-width: 600px;
+    max-width: 620px;
 
-    margin: auto;
+    margin: 0 auto;
 
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12px;
 }
 
 
@@ -1351,17 +1229,17 @@ textarea {
 .certificate-content {
     display: grid;
 
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 80px 1fr;
 
     gap: 30px;
 
-    padding: 42px;
+    padding: 40px;
 
     background:
         linear-gradient(
             135deg,
             rgba(124, 58, 237, 0.10),
-            rgba(31, 25, 48, 0.76)
+            rgba(31, 25, 48, 0.80)
         );
 
     border:
@@ -1369,21 +1247,19 @@ textarea {
 
     border-radius: 18px;
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .certificate-icon {
-    width: 72px;
-
-    height: 72px;
+    width: 68px;
+    height: 68px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
     color: var(--white);
 
@@ -1394,44 +1270,38 @@ textarea {
             var(--purple)
         );
 
-    font-size: 27px;
-
-    box-shadow:
-        0 12px 30px rgba(124, 58, 237, 0.25);
+    font-size: 25px;
 }
 
 .certificate-content h3 {
     color: var(--white);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family: "Playfair Display", serif;
 
-    font-size: 27px;
+    font-size: 26px;
 
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .certificate-provider {
     color: var(--light-purple) !important;
 
-    font-size: 13px !important;
-
+    font-size: 12px !important;
     font-weight: 600;
 }
 
 .certificate-content p {
     color: var(--muted);
 
-    font-size: 13px;
+    font-size: 12px;
 
     line-height: 1.85;
 
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 .certificate-content .btn {
-    margin-top: 12px;
+    margin-top: 10px;
 }
 
 
@@ -1451,34 +1321,33 @@ textarea {
 .service-card {
     position: relative;
 
-    min-height: 300px;
+    min-height: 295px;
 
-    padding: 30px 25px;
+    padding: 28px 24px;
 
     background:
         linear-gradient(
             145deg,
             rgba(124, 58, 237, 0.08),
-            rgba(31, 25, 48, 0.75)
+            rgba(31, 25, 48, 0.78)
         );
 
     border:
         1px solid var(--border);
 
-    border-radius: 17px;
-
-    overflow: hidden;
+    border-radius: 16px;
 
     transition: var(--transition);
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-7px);
 
     border-color:
-        rgba(167, 139, 250, 0.45);
+        rgba(167, 139, 250, 0.43);
 
-    box-shadow: var(--glow);
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.26);
 }
 
 .service-number {
@@ -1486,19 +1355,14 @@ textarea {
 }
 
 .service-card > i {
-    width: 52px;
-
-    height: 52px;
+    width: 50px;
+    height: 50px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
-    margin-bottom: 25px;
-
-    border-radius: 13px;
+    margin-bottom: 22px;
 
     color: var(--light-purple);
 
@@ -1508,23 +1372,25 @@ textarea {
     border:
         1px solid rgba(167, 139, 250, 0.14);
 
-    font-size: 20px;
+    border-radius: 12px;
+
+    font-size: 19px;
 }
 
 .service-card h3 {
     color: var(--white);
 
-    font-size: 16px;
+    font-size: 15px;
 
     line-height: 1.45;
 
-    margin-bottom: 12px;
+    margin-bottom: 11px;
 }
 
 .service-card p {
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
 
     line-height: 1.8;
 }
@@ -1537,45 +1403,38 @@ textarea {
 .contact-grid {
     display: grid;
 
-    grid-template-columns:
-        0.75fr 1.25fr;
+    grid-template-columns: 0.75fr 1.25fr;
 
-    gap: 45px;
+    gap: 50px;
 
     align-items: start;
 }
 
 .contact-info {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .contact-info-item {
     display: flex;
-
     align-items: center;
 
-    gap: 18px;
+    gap: 17px;
 
-    padding: 20px 0;
+    padding: 19px 0;
 
     border-bottom:
         1px solid rgba(167, 139, 250, 0.10);
 }
 
 .contact-icon {
-    width: 48px;
-
-    height: 48px;
+    width: 47px;
+    height: 47px;
 
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
-    border-radius: 12px;
 
     color: var(--light-purple);
 
@@ -1584,6 +1443,8 @@ textarea {
 
     border:
         1px solid rgba(167, 139, 250, 0.15);
+
+    border-radius: 11px;
 }
 
 .contact-info-item span {
@@ -1591,19 +1452,18 @@ textarea {
 
     color: var(--light-purple);
 
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 700;
 
     letter-spacing: 1.5px;
 
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .contact-info-item a {
     color: var(--white);
 
-    font-size: 14px;
+    font-size: 13px;
 
     transition: var(--transition);
 }
@@ -1614,20 +1474,19 @@ textarea {
 
 .contact-buttons {
     display: flex;
-
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 9px;
 
-    margin-top: 30px;
+    margin-top: 27px;
 }
 
 .contact-buttons .btn {
-    min-height: 44px;
+    min-height: 43px;
 
-    padding: 0 17px;
+    padding: 0 16px;
 
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
@@ -1636,34 +1495,35 @@ textarea {
 ========================================================= */
 
 .contact-form-wrapper {
-    padding: 35px;
+    padding: 34px;
 
     background:
         linear-gradient(
             145deg,
             rgba(124, 58, 237, 0.08),
-            rgba(31, 25, 48, 0.78)
+            rgba(31, 25, 48, 0.80)
         );
 
     border:
         1px solid var(--border);
 
-    border-radius: 18px;
+    border-radius: 17px;
 
-    box-shadow: var(--shadow);
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.25);
 }
 
 .form-row {
     display: grid;
 
     grid-template-columns:
-        repeat(2, 1fr);
+        repeat(2, minmax(0, 1fr));
 
     gap: 18px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
 }
 
 .form-group label {
@@ -1671,11 +1531,10 @@ textarea {
 
     color: var(--lavender);
 
-    font-size: 11px;
-
+    font-size: 10px;
     font-weight: 600;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .form-group input,
@@ -1685,35 +1544,35 @@ textarea {
     color: var(--white);
 
     background:
-        rgba(23, 19, 35, 0.65);
+        rgba(23, 19, 35, 0.70);
 
     border:
-        1px solid rgba(167, 139, 250, 0.16);
+        1px solid rgba(167, 139, 250, 0.15);
 
-    border-radius: 9px;
+    border-radius: 8px;
 
     outline: none;
 
-    padding: 13px 15px;
+    font-size: 12px;
 
-    font-size: 13px;
+    padding: 12px 14px;
 
     transition: var(--transition);
 }
 
 .form-group input {
-    height: 48px;
+    height: 46px;
 }
 
 .form-group textarea {
-    resize: vertical;
+    min-height: 140px;
 
-    min-height: 145px;
+    resize: vertical;
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #756C84;
+    color: #70677F;
 }
 
 .form-group input:focus,
@@ -1734,24 +1593,19 @@ textarea {
 ========================================================= */
 
 .footer {
-    padding: 28px 0;
+    padding: 27px 0;
 
     border-top:
-        1px solid rgba(167, 139, 250, 0.10);
+        1px solid rgba(167, 139, 250, 0.09);
 
     background:
-        rgba(15, 12, 24, 0.55);
+        rgba(12, 10, 19, 0.55);
 }
 
 .footer-container {
-    width: min(1180px, 92%);
-
-    margin: auto;
-
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
     gap: 20px;
@@ -1760,20 +1614,18 @@ textarea {
 .footer p {
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .footer a {
     display: flex;
-
     align-items: center;
 
-    gap: 8px;
+    gap: 7px;
 
     color: var(--light-purple);
 
-    font-size: 10px;
-
+    font-size: 9px;
     font-weight: 700;
 
     letter-spacing: 0.8px;
@@ -1789,13 +1641,13 @@ textarea {
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   SCROLL REVEAL
 ========================================================= */
 
 .reveal {
     opacity: 0;
 
-    transform: translateY(35px);
+    transform: translateY(30px);
 
     transition:
         opacity 0.7s ease,
@@ -1810,22 +1662,11 @@ textarea {
 
 
 /* =========================================================
-   SELECTION
-========================================================= */
-
-::selection {
-    color: var(--white);
-
-    background: var(--purple);
-}
-
-
-/* =========================================================
    SCROLLBAR
 ========================================================= */
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -1849,16 +1690,23 @@ textarea {
 
 @media (max-width: 1050px) {
 
+    .section-container,
+    .nav-container,
+    .footer-container,
+    .hero-container {
+        width: min(920px, calc(100% - 50px));
+    }
+
     .nav-menu {
-        gap: 17px;
+        gap: 16px;
     }
 
     .nav-menu a {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .hero-container {
-        gap: 40px;
+        gap: 45px;
     }
 
     .hero-content h1 {
@@ -1878,13 +1726,20 @@ textarea {
 
 
 /* =========================================================
-   MOBILE NAV
+   MOBILE NAV + LAYOUT
 ========================================================= */
 
 @media (max-width: 850px) {
 
     .navbar {
         height: 70px;
+    }
+
+    .section-container,
+    .nav-container,
+    .footer-container,
+    .hero-container {
+        width: calc(100% - 36px);
     }
 
     .menu-toggle {
@@ -1895,20 +1750,17 @@ textarea {
         position: absolute;
 
         top: 70px;
+        left: 3%;
 
-        left: 4%;
-
-        width: 92%;
+        width: 94%;
 
         display: flex;
-
         flex-direction: column;
-
-        align-items: flex-start;
+        align-items: stretch;
 
         gap: 0;
 
-        padding: 12px;
+        padding: 10px;
 
         background:
             rgba(23, 19, 35, 0.97);
@@ -1918,12 +1770,12 @@ textarea {
         border:
             1px solid var(--border);
 
-        border-radius: 14px;
+        border-radius: 13px;
 
-        box-shadow: var(--shadow);
+        box-shadow:
+            0 20px 50px rgba(0, 0, 0, 0.35);
 
         opacity: 0;
-
         visibility: hidden;
 
         transform: translateY(-10px);
@@ -1933,7 +1785,6 @@ textarea {
 
     .nav-menu.active {
         opacity: 1;
-
         visibility: visible;
 
         transform: translateY(0);
@@ -1942,11 +1793,11 @@ textarea {
     .nav-menu a {
         width: 100%;
 
-        padding: 13px 15px;
+        padding: 12px 14px;
 
-        border-radius: 8px;
+        border-radius: 7px;
 
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .nav-menu a:hover,
@@ -1962,6 +1813,12 @@ textarea {
 
     /* HERO */
 
+    .hero-section {
+        min-height: auto;
+
+        padding: 120px 0 80px;
+    }
+
     .hero-container {
         grid-template-columns: 1fr;
 
@@ -1971,7 +1828,7 @@ textarea {
     }
 
     .hero-description {
-        margin: auto;
+        margin: 0 auto;
     }
 
     .hero-buttons {
@@ -1980,12 +1837,6 @@ textarea {
 
     .hero-visual {
         min-height: auto;
-    }
-
-    .hero-video {
-        width: min(390px, 90vw);
-
-        height: 500px;
     }
 
 
@@ -2003,10 +1854,6 @@ textarea {
 
     .about-content {
         order: 2;
-    }
-
-    .about-image-frame {
-        width: min(400px, 90vw);
     }
 
 
@@ -2028,7 +1875,7 @@ textarea {
 
 
 /* =========================================================
-   MOBILE
+   SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -2045,21 +1892,19 @@ textarea {
         font-size: 34px;
     }
 
+    .section-subtitle {
+        font-size: 12px;
+    }
+
 
     /* HERO */
 
-    .hero-section {
-        padding-top: 120px;
-
-        min-height: auto;
-    }
-
     .hero-content h1 {
-        font-size: 47px;
+        font-size: 45px;
     }
 
     .hero-content h2 {
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .hero-content h3 {
@@ -2067,22 +1912,19 @@ textarea {
     }
 
     .hero-description {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .hero-highlight {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .hero-buttons {
         flex-direction: column;
 
-        align-items: stretch;
-
         width: min(330px, 100%);
 
         margin-left: auto;
-
         margin-right: auto;
     }
 
@@ -2091,16 +1933,15 @@ textarea {
     }
 
     .hero-video {
-        width: min(330px, 88vw);
+        width: min(330px, 90vw);
 
         height: 430px;
 
-        border-radius: 18px;
+        border-radius: 19px;
     }
 
     .video-glow {
         width: 320px;
-
         height: 320px;
     }
 
@@ -2112,7 +1953,7 @@ textarea {
     }
 
     .about-content p {
-        font-size: 13px;
+        font-size: 12px;
     }
 
 
@@ -2122,18 +1963,16 @@ textarea {
         min-height: auto;
 
         padding: 24px 20px;
-
-        border-radius: 12px;
     }
 
     .skill-card h3 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .skill-tags span {
-        font-size: 10px;
+        font-size: 9px;
 
-        padding: 7px 10px;
+        padding: 7px 9px;
     }
 
 
@@ -2142,17 +1981,16 @@ textarea {
     .tool-item {
         flex-basis: 155px;
 
-        min-height: 115px;
+        min-height: 112px;
     }
 
     .tool-item img {
         width: 43px;
-
         height: 43px;
     }
 
     .tool-item span {
-        font-size: 10px;
+        font-size: 9px;
     }
 
 
@@ -2163,13 +2001,13 @@ textarea {
     }
 
     .experience-content h3 {
-        font-size: 22px;
+        font-size: 21px;
     }
 
     .experience-meta {
         flex-direction: column;
 
-        gap: 7px;
+        gap: 6px;
     }
 
 
@@ -2183,31 +2021,20 @@ textarea {
         min-height: 210px;
     }
 
-    .project-category-header h3 {
-        font-size: 17px;
-    }
-
 
     /* CERTIFICATE */
 
     .certificate-content {
         grid-template-columns: 1fr;
 
-        padding: 28px 22px;
-
         gap: 22px;
+
+        padding: 28px 22px;
     }
 
     .certificate-icon {
         width: 60px;
-
         height: 60px;
-
-        font-size: 22px;
-    }
-
-    .certificate-content h3 {
-        font-size: 23px;
     }
 
 
@@ -2252,24 +2079,24 @@ textarea {
 
 
 /* =========================================================
-   EXTRA SMALL
+   EXTRA SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 380px) {
 
     .logo {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .hero-content h1 {
-        font-size: 41px;
-    }
-
-    .hero-video {
-        height: 400px;
+        font-size: 40px;
     }
 
     .section-heading h2 {
         font-size: 30px;
+    }
+
+    .hero-video {
+        height: 400px;
     }
 }
