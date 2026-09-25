@@ -1,19 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+
 /* =========================================================
-   JEYASNEKA G
-   DIGITAL MARKETING PORTFOLIO
-   PREMIUM LAVENDER + DEEP PURPLE THEME
+   ROOT
 ========================================================= */
 
 :root {
     --deep-purple: #5B21B6;
     --purple: #7C3AED;
     --light-purple: #A78BFA;
+
     --lavender: #EDE9FE;
     --soft-lavender: #F5F3FF;
 
     --dark: #171323;
     --dark-2: #1E182C;
-    --card: rgba(31, 25, 48, 0.72);
 
     --white: #FFFFFF;
     --text: #EDE9F7;
@@ -21,11 +22,15 @@
 
     --border: rgba(167, 139, 250, 0.18);
 
-    --shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
-
-    --glow: 0 0 45px rgba(124, 58, 237, 0.18);
+    --card-bg: rgba(31, 25, 48, 0.72);
 
     --transition: all 0.35s ease;
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.30);
+
+    --glow:
+        0 0 45px rgba(124, 58, 237, 0.18);
 }
 
 
@@ -46,7 +51,11 @@ html {
 
 body {
     font-family: "DM Sans", sans-serif;
+
     color: var(--text);
+
+    line-height: 1.7;
+
     background:
         radial-gradient(
             circle at 10% 10%,
@@ -54,44 +63,49 @@ body {
             transparent 30%
         ),
         radial-gradient(
-            circle at 90% 30%,
+            circle at 90% 25%,
             rgba(91, 33, 182, 0.12),
             transparent 32%
         ),
         var(--dark);
-    line-height: 1.7;
+
     overflow-x: hidden;
 }
 
 body::before {
     content: "";
+
     position: fixed;
+
     inset: 0;
 
     background-image:
         linear-gradient(
-            rgba(255, 255, 255, 0.015) 1px,
+            rgba(255, 255, 255, 0.014) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.015) 1px,
+            rgba(255, 255, 255, 0.014) 1px,
             transparent 1px
         );
 
     background-size: 45px 45px;
 
     pointer-events: none;
+
     z-index: -1;
 }
 
 a {
     color: inherit;
+
     text-decoration: none;
 }
 
 img {
     max-width: 100%;
+
     display: block;
 }
 
@@ -103,49 +117,64 @@ textarea {
 
 
 /* =========================================================
-   CONTAINERS
+   COMMON
 ========================================================= */
 
 .section {
     padding: 110px 0;
+
     position: relative;
 }
 
 .section-container {
     width: min(1180px, 92%);
+
     margin: auto;
 }
 
 
 /* =========================================================
-   SECTION HEADINGS
+   SECTION HEADING
 ========================================================= */
 
 .section-heading {
     text-align: center;
+
     margin-bottom: 60px;
 }
 
 .section-number {
     color: var(--light-purple);
-    font-size: 13px;
-    font-weight: 600;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
     letter-spacing: 2px;
+
     margin-bottom: 10px;
 }
 
 .section-heading h2 {
     color: var(--white);
+
     font-family: "Playfair Display", serif;
-    font-size: clamp(34px, 5vw, 50px);
+
+    font-size: clamp(35px, 5vw, 52px);
+
     line-height: 1.2;
 }
 
 .section-subtitle {
     max-width: 720px;
+
     margin: 18px auto 0;
+
     color: var(--muted);
+
     font-size: 14px;
+
+    line-height: 1.8;
 }
 
 
@@ -155,21 +184,27 @@ textarea {
 
 .navbar {
     position: fixed;
+
     top: 0;
     left: 0;
 
     width: 100%;
+
     height: 78px;
 
     display: flex;
+
     align-items: center;
 
-    background: rgba(23, 19, 35, 0.78);
+    background:
+        rgba(23, 19, 35, 0.78);
 
     backdrop-filter: blur(18px);
+
     -webkit-backdrop-filter: blur(18px);
 
-    border-bottom: 1px solid rgba(237, 233, 254, 0.08);
+    border-bottom:
+        1px solid rgba(237, 233, 254, 0.08);
 
     z-index: 9999;
 
@@ -178,18 +213,25 @@ textarea {
 
 .nav-container {
     width: min(1250px, 92%);
+
     margin: auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
 .logo {
     color: var(--white);
+
     font-size: 20px;
+
     font-weight: 700;
+
     letter-spacing: 1px;
+
     white-space: nowrap;
 }
 
@@ -199,7 +241,9 @@ textarea {
 
 .nav-menu {
     display: flex;
+
     align-items: center;
+
     gap: 27px;
 }
 
@@ -208,8 +252,10 @@ textarea {
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
+
     font-weight: 600;
+
     letter-spacing: 0.5px;
 
     transition: var(--transition);
@@ -219,6 +265,7 @@ textarea {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -8px;
 
@@ -244,9 +291,11 @@ textarea {
     display: none;
 
     border: none;
+
     background: transparent;
 
     color: var(--white);
+
     font-size: 23px;
 
     cursor: pointer;
@@ -259,18 +308,23 @@ textarea {
 
 .btn {
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     gap: 9px;
 
     min-height: 48px;
+
     padding: 0 23px;
 
     border-radius: 8px;
 
-    font-size: 12px;
+    font-size: 11px;
+
     font-weight: 700;
+
     letter-spacing: 0.4px;
 
     transition: var(--transition);
@@ -304,15 +358,18 @@ textarea {
 .btn-outline {
     color: var(--lavender);
 
-    background: rgba(124, 58, 237, 0.05);
+    background:
+        rgba(124, 58, 237, 0.05);
 
-    border: 1px solid rgba(167, 139, 250, 0.28);
+    border:
+        1px solid rgba(167, 139, 250, 0.28);
 }
 
 .btn-outline:hover {
     color: var(--white);
 
-    background: rgba(124, 58, 237, 0.14);
+    background:
+        rgba(124, 58, 237, 0.14);
 
     border-color: var(--purple);
 
@@ -321,36 +378,39 @@ textarea {
 
 
 /* =========================================================
-   HOME / HERO
+   HOME
 ========================================================= */
 
 .hero-section {
     min-height: 100vh;
 
-    padding-top: 150px;
-    padding-bottom: 90px;
+    padding-top: 145px;
+
+    padding-bottom: 80px;
 
     display: flex;
-    align-items: center;
 
-    position: relative;
+    align-items: center;
 }
 
 .hero-container {
     width: min(1180px, 92%);
+
     margin: auto;
 
     display: grid;
 
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns:
+        1.08fr 0.92fr;
 
-    gap: 70px;
+    gap: 65px;
 
     align-items: center;
 }
 
 .hero-content {
     position: relative;
+
     z-index: 2;
 }
 
@@ -358,6 +418,7 @@ textarea {
     color: var(--lavender);
 
     font-size: 14px;
+
     font-weight: 600;
 
     letter-spacing: 2px;
@@ -368,19 +429,23 @@ textarea {
 .hero-content h1 {
     color: var(--white);
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
-    font-size: clamp(48px, 6vw, 78px);
+    font-size:
+        clamp(50px, 6vw, 76px);
 
     line-height: 1.02;
 
-    margin-bottom: 12px;
+    margin-bottom: 13px;
 }
 
 .hero-content h2 {
     color: var(--light-purple);
 
-    font-size: clamp(20px, 3vw, 29px);
+    font-size:
+        clamp(20px, 3vw, 29px);
 
     font-weight: 700;
 
@@ -393,6 +458,7 @@ textarea {
     color: var(--lavender);
 
     font-size: 18px;
+
     font-weight: 500;
 
     margin-bottom: 22px;
@@ -409,11 +475,12 @@ textarea {
 }
 
 .hero-highlight {
-    margin-top: 22px;
+    margin-top: 21px;
 
     color: var(--lavender);
 
-    font-size: 13px;
+    font-size: 12px;
+
     font-weight: 600;
 }
 
@@ -437,6 +504,7 @@ textarea {
 
 .hero-buttons {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 14px;
@@ -452,18 +520,21 @@ textarea {
 .hero-visual {
     position: relative;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 550px;
 
-    min-height: 560px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 .video-glow {
     position: absolute;
 
-    width: 440px;
-    height: 440px;
+    width: 450px;
+
+    height: 450px;
 
     border-radius: 50%;
 
@@ -474,7 +545,7 @@ textarea {
             transparent 68%
         );
 
-    filter: blur(15px);
+    filter: blur(16px);
 
     z-index: 0;
 }
@@ -486,14 +557,16 @@ textarea {
 
     display: block;
 
-    width: min(440px, 100%);
-    height: 550px;
+    width: min(430px, 100%);
+
+    height: 545px;
 
     object-fit: cover;
 
     border-radius: 22px;
 
-    border: 1px solid rgba(167, 139, 250, 0.28);
+    border:
+        1px solid rgba(167, 139, 250, 0.28);
 
     background: var(--dark-2);
 
@@ -501,7 +574,8 @@ textarea {
         0 30px 80px rgba(0, 0, 0, 0.45),
         0 0 60px rgba(124, 58, 237, 0.15);
 
-    animation: videoFloat 5s ease-in-out infinite;
+    animation:
+        videoFloat 5s ease-in-out infinite;
 }
 
 @keyframes videoFloat {
@@ -524,7 +598,8 @@ textarea {
 .about-grid {
     display: grid;
 
-    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-columns:
+        0.85fr 1.15fr;
 
     gap: 70px;
 
@@ -532,16 +607,17 @@ textarea {
 }
 
 .about-image-wrapper {
-    position: relative;
-
     display: flex;
+
     justify-content: center;
+
+    position: relative;
 }
 
 .about-image-frame {
     position: relative;
 
-    width: min(420px, 100%);
+    width: min(410px, 100%);
 
     padding: 12px;
 
@@ -554,7 +630,8 @@ textarea {
             rgba(91, 33, 182, 0.04)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 }
 
 .about-image-frame::before {
@@ -564,7 +641,8 @@ textarea {
 
     inset: 18px -12px -12px 18px;
 
-    border: 1px solid rgba(167, 139, 250, 0.30);
+    border:
+        1px solid rgba(167, 139, 250, 0.30);
 
     border-radius: 18px;
 
@@ -573,6 +651,7 @@ textarea {
 
 .about-image-frame img {
     width: 100%;
+
     height: 500px;
 
     object-fit: cover;
@@ -580,10 +659,6 @@ textarea {
     border-radius: 12px;
 
     background: var(--dark-2);
-}
-
-.about-content {
-    padding-top: 5px;
 }
 
 .about-content p {
@@ -598,52 +673,56 @@ textarea {
 
 
 /* =========================================================
-   SKILLS & TOOLS
+   SKILLS SECTION
 ========================================================= */
 
 .skills-section {
     overflow: hidden;
 }
 
-/*
-   Two-column layout for skill cards
-*/
-
-.skills-section .section-heading,
-.skills-section .tools-area {
-    grid-column: 1 / -1;
+.skills-section .section-container {
+    display: block;
 }
 
-.skills-section .section-container {
+.skills-grid {
     display: grid;
 
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
 
     gap: 24px;
 }
 
-.skill-category {
+
+/* =========================================================
+   SKILL CARD
+========================================================= */
+
+.skill-card {
     position: relative;
 
-    padding: 28px 30px;
+    min-height: 275px;
+
+    padding: 30px;
 
     background:
         linear-gradient(
-            135deg,
-            rgba(124, 58, 237, 0.08),
-            rgba(31, 25, 48, 0.76)
+            145deg,
+            rgba(124, 58, 237, 0.10),
+            rgba(31, 25, 48, 0.84)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid rgba(167, 139, 250, 0.18);
 
-    border-radius: 17px;
+    border-radius: 14px;
 
     overflow: hidden;
 
     transition: var(--transition);
 }
 
-.skill-category::before {
+.skill-card::before {
     content: "";
 
     position: absolute;
@@ -652,135 +731,155 @@ textarea {
     left: 0;
 
     width: 100%;
-    height: 2px;
+    height: 3px;
 
     background:
         linear-gradient(
             90deg,
-            transparent,
+            var(--deep-purple),
             var(--purple),
-            transparent
+            var(--light-purple)
         );
 }
 
-.skill-category:hover {
-    transform: translateY(-5px);
+.skill-card:hover {
+    transform: translateY(-7px);
 
     border-color:
-        rgba(167, 139, 250, 0.42);
+        rgba(167, 139, 250, 0.45);
 
-    box-shadow: var(--glow);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.30),
+        0 0 35px rgba(124, 58, 237, 0.15);
 }
 
+.skill-card-icon {
+    width: 50px;
 
-/* Hide 01 / 02 / 03 numbers */
+    height: 50px;
 
-.skill-category-title > span {
-    display: none;
-}
-
-.skill-category-title {
     display: flex;
 
     align-items: center;
 
-    margin-bottom: 22px;
-}
+    justify-content: center;
 
-.skill-category-title h3 {
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
     color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--deep-purple),
+            var(--purple)
+        );
 
     font-size: 19px;
 
+    box-shadow:
+        0 10px 25px rgba(124, 58, 237, 0.20);
+}
+
+.skill-card h3 {
+    color: var(--white);
+
+    font-size: 18px;
+
     font-weight: 700;
 
-    letter-spacing: 0.3px;
+    line-height: 1.4;
+
+    margin-bottom: 18px;
 }
 
-.skill-content {
+.skill-tags {
     display: flex;
+
     flex-wrap: wrap;
 
-    gap: 10px;
+    gap: 9px;
 }
 
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    width: 100%;
-}
-
-.skill-list span,
-.language-list span {
+.skill-tags span {
     display: inline-flex;
 
     align-items: center;
 
-    padding: 8px 14px;
+    padding: 8px 12px;
 
     color: var(--lavender);
 
     background:
         rgba(124, 58, 237, 0.08);
 
-    border: 1px solid rgba(167, 139, 250, 0.14);
+    border:
+        1px solid rgba(167, 139, 250, 0.15);
 
-    border-radius: 8px;
+    border-radius: 7px;
 
-    font-size: 12px;
+    font-size: 11px;
 
     transition: var(--transition);
 }
 
-.skill-list span:hover,
-.language-list span:hover {
+.skill-tags span:hover {
     color: var(--white);
 
     background:
-        rgba(124, 58, 237, 0.17);
+        rgba(124, 58, 237, 0.20);
 
     border-color:
         rgba(167, 139, 250, 0.35);
-
-    transform: translateY(-2px);
 }
 
-.language-list {
+.skill-languages {
     display: flex;
 
     flex-wrap: wrap;
 
     align-items: center;
 
-    gap: 10px;
+    gap: 8px;
 
-    width: 100%;
-
-    margin-top: 10px;
+    margin-top: 18px;
 }
 
-.language-list strong {
+.skill-languages strong {
     color: var(--light-purple);
 
-    font-size: 12px;
+    font-size: 11px;
+}
 
-    margin-right: 4px;
+.skill-languages span {
+    padding: 6px 10px;
+
+    color: var(--lavender);
+
+    background:
+        rgba(124, 58, 237, 0.07);
+
+    border:
+        1px solid rgba(167, 139, 250, 0.13);
+
+    border-radius: 6px;
+
+    font-size: 10px;
 }
 
 
 /* =========================================================
-   MOVING TOOLS
+   TOOLS
 ========================================================= */
 
 .tools-area {
-    margin-top: 55px;
+    width: 100%;
+
+    margin-top: 70px;
 
     overflow: hidden;
-
-    width: 100%;
 }
 
 .tools-heading {
@@ -799,15 +898,23 @@ textarea {
     letter-spacing: 2px;
 }
 
+.tools-slider {
+    width: 100%;
+
+    overflow: hidden;
+
+    padding: 12px 0 25px;
+}
+
 .tools-track {
     display: flex;
 
     width: max-content;
 
-    gap: 16px;
+    gap: 18px;
 
     animation:
-        toolsScroll 35s linear infinite;
+        logoScroll 40s linear infinite;
 }
 
 .tools-track:hover {
@@ -815,26 +922,27 @@ textarea {
 }
 
 .tool-item {
-    flex-shrink: 0;
+    flex: 0 0 175px;
 
-    width: 175px;
-    min-height: 108px;
-
-    padding: 18px 14px;
+    min-height: 125px;
 
     display: flex;
 
     flex-direction: column;
 
     align-items: center;
+
     justify-content: center;
 
-    gap: 10px;
+    gap: 12px;
+
+    padding: 18px 12px;
 
     background:
-        rgba(31, 25, 48, 0.72);
+        rgba(31, 25, 48, 0.80);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid rgba(167, 139, 250, 0.17);
 
     border-radius: 14px;
 
@@ -847,37 +955,31 @@ textarea {
     border-color:
         rgba(167, 139, 250, 0.45);
 
-    box-shadow: var(--glow);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.25),
+        0 0 30px rgba(124, 58, 237, 0.14);
 }
 
-.tool-icon {
-    width: 45px;
-    height: 45px;
+.tool-item img {
+    width: 50px;
 
-    display: flex;
+    height: 50px;
 
-    align-items: center;
-    justify-content: center;
+    object-fit: contain;
 
-    border-radius: 11px;
+    border-radius: 10px;
+
+    padding: 5px;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(91, 33, 182, 0.9),
-            rgba(124, 58, 237, 0.7)
-        );
+        rgba(255, 255, 255, 0.04);
 
-    color: var(--white);
+    transition:
+        transform 0.3s ease;
+}
 
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 0.5px;
-
-    box-shadow:
-        0 8px 20px rgba(124, 58, 237, 0.18);
+.tool-item:hover img {
+    transform: scale(1.10);
 }
 
 .tool-item span {
@@ -890,7 +992,7 @@ textarea {
     text-align: center;
 }
 
-@keyframes toolsScroll {
+@keyframes logoScroll {
 
     from {
         transform: translateX(0);
@@ -907,56 +1009,27 @@ textarea {
 ========================================================= */
 
 .experience-timeline {
-    position: relative;
-
     max-width: 950px;
 
     margin: auto;
 }
 
 .experience-timeline::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    bottom: 0;
-
-    left: 28px;
-
-    width: 2px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            var(--purple),
-            rgba(124, 58, 237, 0.05)
-        );
-}
-
-/* Hide 01 / 02 */
-
-.experience-number {
     display: none;
 }
 
 .experience-card {
-    position: relative;
+    display: block;
 
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 0;
-
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 
     padding: 32px;
 
     background:
-        rgba(31, 25, 48, 0.72);
+        rgba(31, 25, 48, 0.74);
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 17px;
 
@@ -964,12 +1037,16 @@ textarea {
 }
 
 .experience-card:hover {
-    transform: translateX(6px);
+    transform: translateY(-5px);
 
     border-color:
         rgba(167, 139, 250, 0.42);
 
     box-shadow: var(--glow);
+}
+
+.experience-number {
+    display: none;
 }
 
 .experience-role {
@@ -987,7 +1064,9 @@ textarea {
 .experience-content h3 {
     color: var(--white);
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
     font-size: 25px;
 
@@ -1068,7 +1147,8 @@ textarea {
     background:
         rgba(124, 58, 237, 0.08);
 
-    border: 1px solid rgba(167, 139, 250, 0.14);
+    border:
+        1px solid rgba(167, 139, 250, 0.14);
 
     border-radius: 7px;
 
@@ -1093,8 +1173,6 @@ textarea {
 
     margin-bottom: 25px;
 }
-
-/* Hide project 01 / 02 / 03 */
 
 .project-category-header > span {
     display: none;
@@ -1137,9 +1215,9 @@ textarea {
 .project-card {
     position: relative;
 
-    padding: 28px;
-
     min-height: 230px;
+
+    padding: 28px;
 
     display: flex;
 
@@ -1152,7 +1230,8 @@ textarea {
             rgba(31, 25, 48, 0.75)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 16px;
 
@@ -1185,7 +1264,9 @@ textarea {
 .project-card h4 {
     color: var(--white);
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
     font-size: 22px;
 
@@ -1206,6 +1287,7 @@ textarea {
     align-self: flex-start;
 
     margin-top: auto;
+
     padding-top: 20px;
 
     color: var(--light-purple);
@@ -1225,7 +1307,8 @@ textarea {
     background:
         rgba(31, 25, 48, 0.68);
 
-    border: 1px dashed rgba(167, 139, 250, 0.25);
+    border:
+        1px dashed rgba(167, 139, 250, 0.25);
 
     border-radius: 17px;
 }
@@ -1241,7 +1324,9 @@ textarea {
 .coming-soon h4 {
     color: var(--white);
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
     font-size: 24px;
 
@@ -1279,7 +1364,8 @@ textarea {
             rgba(31, 25, 48, 0.76)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 18px;
 
@@ -1288,11 +1374,13 @@ textarea {
 
 .certificate-icon {
     width: 72px;
+
     height: 72px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     border-radius: 18px;
@@ -1315,7 +1403,9 @@ textarea {
 .certificate-content h3 {
     color: var(--white);
 
-    font-family: "Playfair Display", serif;
+    font-family:
+        "Playfair Display",
+        serif;
 
     font-size: 27px;
 
@@ -1372,7 +1462,8 @@ textarea {
             rgba(31, 25, 48, 0.75)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 17px;
 
@@ -1390,20 +1481,20 @@ textarea {
     box-shadow: var(--glow);
 }
 
-/* Hide 01 / 02 / 03 numbers */
-
 .service-number {
     display: none;
 }
 
 .service-card > i {
+    width: 52px;
+
+    height: 52px;
+
     display: flex;
 
     align-items: center;
-    justify-content: center;
 
-    width: 52px;
-    height: 52px;
+    justify-content: center;
 
     margin-bottom: 25px;
 
@@ -1414,7 +1505,8 @@ textarea {
     background:
         rgba(124, 58, 237, 0.10);
 
-    border: 1px solid rgba(167, 139, 250, 0.14);
+    border:
+        1px solid rgba(167, 139, 250, 0.14);
 
     font-size: 20px;
 }
@@ -1445,7 +1537,8 @@ textarea {
 .contact-grid {
     display: grid;
 
-    grid-template-columns: 0.75fr 1.25fr;
+    grid-template-columns:
+        0.75fr 1.25fr;
 
     gap: 45px;
 
@@ -1465,11 +1558,13 @@ textarea {
 
     padding: 20px 0;
 
-    border-bottom: 1px solid rgba(167, 139, 250, 0.10);
+    border-bottom:
+        1px solid rgba(167, 139, 250, 0.10);
 }
 
 .contact-icon {
     width: 48px;
+
     height: 48px;
 
     flex-shrink: 0;
@@ -1477,6 +1572,7 @@ textarea {
     display: flex;
 
     align-items: center;
+
     justify-content: center;
 
     border-radius: 12px;
@@ -1486,7 +1582,8 @@ textarea {
     background:
         rgba(124, 58, 237, 0.10);
 
-    border: 1px solid rgba(167, 139, 250, 0.15);
+    border:
+        1px solid rgba(167, 139, 250, 0.15);
 }
 
 .contact-info-item span {
@@ -1548,7 +1645,8 @@ textarea {
             rgba(31, 25, 48, 0.78)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 18px;
 
@@ -1558,7 +1656,8 @@ textarea {
 .form-row {
     display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+        repeat(2, 1fr);
 
     gap: 18px;
 }
@@ -1588,7 +1687,8 @@ textarea {
     background:
         rgba(23, 19, 35, 0.65);
 
-    border: 1px solid rgba(167, 139, 250, 0.16);
+    border:
+        1px solid rgba(167, 139, 250, 0.16);
 
     border-radius: 9px;
 
@@ -1626,8 +1726,6 @@ textarea {
 
 .form-submit {
     border: none;
-
-    width: auto;
 }
 
 
@@ -1638,7 +1736,8 @@ textarea {
 .footer {
     padding: 28px 0;
 
-    border-top: 1px solid rgba(167, 139, 250, 0.10);
+    border-top:
+        1px solid rgba(167, 139, 250, 0.10);
 
     background:
         rgba(15, 12, 24, 0.55);
@@ -1690,7 +1789,7 @@ textarea {
 
 
 /* =========================================================
-   SCROLL REVEAL
+   REVEAL ANIMATION
 ========================================================= */
 
 .reveal {
@@ -1751,11 +1850,11 @@ textarea {
 @media (max-width: 1050px) {
 
     .nav-menu {
-        gap: 18px;
+        gap: 17px;
     }
 
     .nav-menu a {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .hero-container {
@@ -1779,7 +1878,7 @@ textarea {
 
 
 /* =========================================================
-   MOBILE NAVIGATION
+   MOBILE NAV
 ========================================================= */
 
 @media (max-width: 850px) {
@@ -1796,6 +1895,7 @@ textarea {
         position: absolute;
 
         top: 70px;
+
         left: 4%;
 
         width: 92%;
@@ -1815,7 +1915,8 @@ textarea {
 
         backdrop-filter: blur(20px);
 
-        border: 1px solid var(--border);
+        border:
+            1px solid var(--border);
 
         border-radius: 14px;
 
@@ -1844,6 +1945,8 @@ textarea {
         padding: 13px 15px;
 
         border-radius: 8px;
+
+        font-size: 12px;
     }
 
     .nav-menu a:hover,
@@ -1855,6 +1958,9 @@ textarea {
     .nav-menu a::after {
         display: none;
     }
+
+
+    /* HERO */
 
     .hero-container {
         grid-template-columns: 1fr;
@@ -1882,6 +1988,9 @@ textarea {
         height: 500px;
     }
 
+
+    /* ABOUT */
+
     .about-grid {
         grid-template-columns: 1fr;
 
@@ -1900,14 +2009,15 @@ textarea {
         width: min(400px, 90vw);
     }
 
-    .skills-section .section-container {
+
+    /* SKILLS */
+
+    .skills-grid {
         grid-template-columns: 1fr;
     }
 
-    .skills-section .section-heading,
-    .skills-section .tools-area {
-        grid-column: auto;
-    }
+
+    /* CONTACT */
 
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1918,7 +2028,7 @@ textarea {
 
 
 /* =========================================================
-   SMALL MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -1935,6 +2045,9 @@ textarea {
         font-size: 34px;
     }
 
+
+    /* HERO */
+
     .hero-section {
         padding-top: 120px;
 
@@ -1942,7 +2055,7 @@ textarea {
     }
 
     .hero-content h1 {
-        font-size: 48px;
+        font-size: 47px;
     }
 
     .hero-content h2 {
@@ -1969,6 +2082,7 @@ textarea {
         width: min(330px, 100%);
 
         margin-left: auto;
+
         margin-right: auto;
     }
 
@@ -1986,8 +2100,12 @@ textarea {
 
     .video-glow {
         width: 320px;
+
         height: 320px;
     }
+
+
+    /* ABOUT */
 
     .about-image-frame img {
         height: 420px;
@@ -1997,26 +2115,48 @@ textarea {
         font-size: 13px;
     }
 
-    .skill-category {
-        padding: 23px 20px;
+
+    /* SKILLS */
+
+    .skill-card {
+        min-height: auto;
+
+        padding: 24px 20px;
+
+        border-radius: 12px;
     }
 
-    .skill-category-title h3 {
-        font-size: 17px;
+    .skill-card h3 {
+        font-size: 16px;
     }
 
-    .skill-list span,
-    .language-list span {
-        font-size: 11px;
+    .skill-tags span {
+        font-size: 10px;
 
-        padding: 7px 11px;
+        padding: 7px 10px;
     }
+
+
+    /* TOOLS */
 
     .tool-item {
-        width: 155px;
+        flex-basis: 155px;
 
-        min-height: 100px;
+        min-height: 115px;
     }
+
+    .tool-item img {
+        width: 43px;
+
+        height: 43px;
+    }
+
+    .tool-item span {
+        font-size: 10px;
+    }
+
+
+    /* EXPERIENCE */
 
     .experience-card {
         padding: 24px 20px;
@@ -2032,6 +2172,9 @@ textarea {
         gap: 7px;
     }
 
+
+    /* PROJECTS */
+
     .project-grid {
         grid-template-columns: 1fr;
     }
@@ -2044,6 +2187,9 @@ textarea {
         font-size: 17px;
     }
 
+
+    /* CERTIFICATE */
+
     .certificate-content {
         grid-template-columns: 1fr;
 
@@ -2054,6 +2200,7 @@ textarea {
 
     .certificate-icon {
         width: 60px;
+
         height: 60px;
 
         font-size: 22px;
@@ -2063,6 +2210,9 @@ textarea {
         font-size: 23px;
     }
 
+
+    /* SERVICES */
+
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -2070,6 +2220,9 @@ textarea {
     .service-card {
         min-height: auto;
     }
+
+
+    /* CONTACT */
 
     .contact-form-wrapper {
         padding: 25px 20px;
@@ -2087,6 +2240,9 @@ textarea {
         width: 100%;
     }
 
+
+    /* FOOTER */
+
     .footer-container {
         flex-direction: column;
 
@@ -2096,7 +2252,7 @@ textarea {
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   EXTRA SMALL
 ========================================================= */
 
 @media (max-width: 380px) {
@@ -2106,7 +2262,7 @@ textarea {
     }
 
     .hero-content h1 {
-        font-size: 42px;
+        font-size: 41px;
     }
 
     .hero-video {
