@@ -1,3 +1,7 @@
+/* =========================================================
+   JEYASNEKA G — PORTFOLIO JAVASCRIPT
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
 
 
@@ -6,25 +10,21 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const menuToggle =
-        document.getElementById("menu-toggle");
+        document.getElementById("menuToggle");
 
     const navMenu =
-        document.getElementById("nav-menu");
-
-    const navLinks =
-        document.querySelectorAll(".nav-menu a");
-
+        document.getElementById("navMenu");
 
     if (menuToggle && navMenu) {
 
         menuToggle.addEventListener("click", () => {
 
-            navMenu.classList.toggle("active");
+            navMenu.classList.toggle("open");
 
             const icon =
                 menuToggle.querySelector("i");
 
-            if (navMenu.classList.contains("active")) {
+            if (navMenu.classList.contains("open")) {
 
                 icon.classList.remove("fa-bars");
 
@@ -35,30 +35,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 icon.classList.remove("fa-xmark");
 
                 icon.classList.add("fa-bars");
-
             }
 
         });
 
+
+        /* Close menu after clicking link */
+
+        document
+            .querySelectorAll(".nav-link")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    navMenu.classList.remove("open");
+
+                    const icon =
+                        menuToggle.querySelector("i");
+
+                    icon.classList.remove("fa-xmark");
+
+                    icon.classList.add("fa-bars");
+
+                });
+
+            });
+
     }
-
-
-    navLinks.forEach(link => {
-
-        link.addEventListener("click", () => {
-
-            navMenu.classList.remove("active");
-
-            const icon =
-                menuToggle.querySelector("i");
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-        });
-
-    });
 
 
 
@@ -69,27 +72,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const navbar =
         document.querySelector(".navbar");
 
-
     window.addEventListener("scroll", () => {
-
-        if (!navbar) return;
-
 
         if (window.scrollY > 40) {
 
-            navbar.style.background =
-                "rgba(18,14,27,.96)";
-
-            navbar.style.boxShadow =
-                "0 10px 40px rgba(0,0,0,.20)";
+            navbar.classList.add("scrolled");
 
         } else {
 
-            navbar.style.background =
-                "rgba(18,14,27,.80)";
-
-            navbar.style.boxShadow =
-                "none";
+            navbar.classList.remove("scrolled");
 
         }
 
@@ -104,28 +95,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections =
         document.querySelectorAll("section[id]");
 
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
 
     function updateActiveNav() {
 
         let current = "";
 
-
         sections.forEach(section => {
 
-            const top =
-                section.offsetTop - 160;
+            const sectionTop =
+                section.offsetTop - 150;
 
-            const bottom =
-                top + section.offsetHeight;
-
+            const sectionHeight =
+                section.offsetHeight;
 
             if (
-                window.scrollY >= top &&
-                window.scrollY < bottom
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionTop + sectionHeight
             ) {
 
-                current =
-                    section.getAttribute("id");
+                current = section.getAttribute("id");
 
             }
 
@@ -136,10 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             link.classList.remove("active");
 
-
             if (
                 link.getAttribute("href") ===
-                `#${current}`
+                "#" + current
             ) {
 
                 link.classList.add("active");
@@ -161,19 +151,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       SCROLL REVEAL
+       HERO VIDEO
     ===================================================== */
 
-    const revealElements =
+    const heroVideo =
+        document.querySelector(".hero-background-video");
+
+
+    if (heroVideo) {
+
+        heroVideo.muted = true;
+
+        heroVideo.setAttribute(
+            "playsinline",
+            ""
+        );
+
+
+        const playHeroVideo = () => {
+
+            const promise =
+                heroVideo.play();
+
+            if (promise !== undefined) {
+
+                promise.catch(() => {
+
+                    /*
+                       Browser autoplay may be blocked.
+                       Video remains available as background.
+                    */
+
+                });
+
+            }
+
+        };
+
+
+        playHeroVideo();
+
+
+        heroVideo.addEventListener(
+            "loadeddata",
+            playHeroVideo
+        );
+
+    }
+
+
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
+
+    const revealItems =
         document.querySelectorAll(
-            `
-            .skill-card,
-            .experience-card,
-            .project-card,
-            .service-card,
-            .certificate-card,
-            .contact-form-wrapper
-            `
+            ".skill-card, .tool-item, .experience-card, .project-card, .service-card, .certificate-box"
         );
 
 
@@ -183,13 +217,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 entries.forEach(entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    if (entry.isIntersecting) {
 
-                        entry.target.classList.add(
-                            "show"
-                        );
+                        entry.target.style.opacity = "1";
+
+                        entry.target.style.transform =
+                            "translateY(0)";
 
                         observer.unobserve(
                             entry.target
@@ -206,92 +239,19 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
 
-    revealElements.forEach(element => {
+    revealItems.forEach(item => {
 
-        element.classList.add("reveal");
+        item.style.opacity = "0";
 
-        observer.observe(element);
+        item.style.transform =
+            "translateY(25px)";
+
+        item.style.transition =
+            "opacity .7s ease, transform .7s ease";
+
+        observer.observe(item);
 
     });
-
-
-
-    /* =====================================================
-       HERO VIDEO
-    ===================================================== */
-
-    const heroVideo =
-        document.querySelector(".hero-video");
-
-
-    if (heroVideo) {
-
-        heroVideo.muted = true;
-
-        heroVideo.setAttribute(
-            "playsinline",
-            ""
-        );
-
-
-        const playVideo = () => {
-
-            const promise =
-                heroVideo.play();
-
-
-            if (promise !== undefined) {
-
-                promise.catch(() => {});
-
-            }
-
-        };
-
-
-        playVideo();
-
-
-        heroVideo.addEventListener(
-            "loadeddata",
-            playVideo
-        );
-
-    }
-
-
-
-    /* =====================================================
-       TOOLS - DUPLICATE FOR INFINITE SCROLL
-    ===================================================== */
-
-    const toolsTrack =
-        document.querySelector(".tools-track");
-
-
-    if (toolsTrack) {
-
-        const tools =
-            Array.from(
-                toolsTrack.children
-            );
-
-
-        tools.forEach(tool => {
-
-            const clone =
-                tool.cloneNode(true);
-
-            clone.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-            toolsTrack.appendChild(clone);
-
-        });
-
-    }
 
 
 
@@ -300,9 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ===================================================== */
 
     const contactForm =
-        document.getElementById(
-            "contact-form"
-        );
+        document.getElementById("contactForm");
 
 
     if (contactForm) {
@@ -315,68 +273,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 const name =
-                    document
-                        .getElementById("name")
-                        .value
-                        .trim();
-
+                    document.getElementById("name").value;
 
                 const email =
-                    document
-                        .getElementById("email")
-                        .value
-                        .trim();
+                    document.getElementById("email").value;
+
+                const message =
+                    document.getElementById("message").value;
 
 
                 const subject =
-                    document
-                        .getElementById("subject")
-                        .value
-                        .trim();
-
-
-                const message =
-                    document
-                        .getElementById("message")
-                        .value
-                        .trim();
-
-
-                if (
-                    !name ||
-                    !email ||
-                    !subject ||
-                    !message
-                ) {
-
-                    alert(
-                        "Please fill in all the fields."
-                    );
-
-                    return;
-
-                }
-
-
-                const mailSubject =
                     encodeURIComponent(
-                        subject
+                        "Portfolio Contact - " + name
                     );
 
 
-                const mailBody =
+                const body =
                     encodeURIComponent(
-                        `Name: ${name}
-
-Email: ${email}
-
-Message:
-${message}`
+                        "Name: " +
+                        name +
+                        "\n\nEmail: " +
+                        email +
+                        "\n\nMessage:\n" +
+                        message
                     );
 
 
                 window.location.href =
-                    `mailto:jeyasnekajs@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+                    "mailto:jeyasnekajs@gmail.com?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
 
             }
         );
