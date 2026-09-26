@@ -1,16 +1,19 @@
-/* =========================================================
-   JEYASNEKA G — PORTFOLIO JAVASCRIPT
-   ========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =========================
-       MOBILE NAVIGATION
-       ========================= */
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-    const navLinks = document.querySelectorAll(".nav-menu a");
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuToggle =
+        document.getElementById("menu-toggle");
+
+    const navMenu =
+        document.getElementById("nav-menu");
+
+    const navLinks =
+        document.querySelectorAll(".nav-menu a");
+
 
     if (menuToggle && navMenu) {
 
@@ -18,14 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             navMenu.classList.toggle("active");
 
-            const icon = menuToggle.querySelector("i");
+            const icon =
+                menuToggle.querySelector("i");
 
             if (navMenu.classList.contains("active")) {
+
                 icon.classList.remove("fa-bars");
+
                 icon.classList.add("fa-xmark");
+
             } else {
+
                 icon.classList.remove("fa-xmark");
+
                 icon.classList.add("fa-bars");
+
             }
 
         });
@@ -33,56 +43,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================
-       CLOSE MOBILE MENU
-       ========================= */
-
     navLinks.forEach(link => {
 
         link.addEventListener("click", () => {
 
-            if (navMenu) {
-                navMenu.classList.remove("active");
-            }
+            navMenu.classList.remove("active");
 
-            if (menuToggle) {
+            const icon =
+                menuToggle.querySelector("i");
 
-                const icon = menuToggle.querySelector("i");
+            icon.classList.remove("fa-xmark");
 
-                if (icon) {
-                    icon.classList.remove("fa-xmark");
-                    icon.classList.add("fa-bars");
-                }
-
-            }
+            icon.classList.add("fa-bars");
 
         });
 
     });
 
 
-    /* =========================
-       NAVBAR SCROLL EFFECT
-       ========================= */
 
-    const navbar = document.querySelector(".navbar");
+    /* =====================================================
+       NAVBAR SCROLL
+    ===================================================== */
+
+    const navbar =
+        document.querySelector(".navbar");
+
 
     window.addEventListener("scroll", () => {
 
         if (!navbar) return;
 
-        if (window.scrollY > 50) {
+
+        if (window.scrollY > 40) {
 
             navbar.style.background =
-                "rgba(23, 19, 35, 0.94)";
+                "rgba(18,14,27,.96)";
 
             navbar.style.boxShadow =
-                "0 10px 40px rgba(0, 0, 0, 0.18)";
+                "0 10px 40px rgba(0,0,0,.20)";
 
         } else {
 
             navbar.style.background =
-                "rgba(23, 19, 35, 0.78)";
+                "rgba(18,14,27,.80)";
 
             navbar.style.boxShadow =
                 "none";
@@ -92,189 +96,196 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =========================
-       ACTIVE NAVIGATION
-       ========================= */
 
-    const sections = document.querySelectorAll("section[id]");
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll("section[id]");
+
 
     function updateActiveNav() {
 
-        let currentSection = "";
+        let current = "";
+
 
         sections.forEach(section => {
 
-            const sectionTop =
-                section.offsetTop - 150;
+            const top =
+                section.offsetTop - 160;
 
-            const sectionHeight =
-                section.offsetHeight;
+            const bottom =
+                top + section.offsetHeight;
+
 
             if (
-                window.scrollY >= sectionTop &&
-                window.scrollY < sectionTop + sectionHeight
+                window.scrollY >= top &&
+                window.scrollY < bottom
             ) {
-                currentSection = section.getAttribute("id");
+
+                current =
+                    section.getAttribute("id");
+
             }
 
         });
+
 
         navLinks.forEach(link => {
 
             link.classList.remove("active");
 
-            const href = link.getAttribute("href");
 
-            if (href === `#${currentSection}`) {
+            if (
+                link.getAttribute("href") ===
+                `#${current}`
+            ) {
+
                 link.classList.add("active");
+
             }
 
         });
 
     }
 
-    window.addEventListener("scroll", updateActiveNav);
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNav
+    );
 
     updateActiveNav();
 
 
-    /* =========================
-       REVEAL ANIMATION
-       ========================= */
 
-    const revealElements = document.querySelectorAll(
-        ".skill-category, .experience-card, .project-card, .service-card, .certificate-content, .contact-form-wrapper"
-    );
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
 
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
+    const revealElements =
+        document.querySelectorAll(
+            `
+            .skill-card,
+            .experience-card,
+            .project-card,
+            .service-card,
+            .certificate-card,
+            .contact-form-wrapper
+            `
+        );
 
-            entries.forEach(entry => {
 
-                if (entry.isIntersecting) {
+    const observer =
+        new IntersectionObserver(
+            entries => {
 
-                    entry.target.classList.add("show");
+                entries.forEach(entry => {
 
-                    observer.unobserve(entry.target);
+                    if (
+                        entry.isIntersecting
+                    ) {
 
-                }
+                        entry.target.classList.add(
+                            "show"
+                        );
 
-            });
+                        observer.unobserve(
+                            entry.target
+                        );
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
 
 
     revealElements.forEach(element => {
 
         element.classList.add("reveal");
 
-        revealObserver.observe(element);
+        observer.observe(element);
 
     });
 
 
-    /* =========================
-       CONTACT FORM
-       ========================= */
 
-    const contactForm =
-        document.getElementById("contact-form");
-
-    if (contactForm) {
-
-        contactForm.addEventListener("submit", event => {
-
-            event.preventDefault();
-
-            const name =
-                document.getElementById("name").value.trim();
-
-            const email =
-                document.getElementById("email").value.trim();
-
-            const subject =
-                document.getElementById("subject").value.trim();
-
-            const message =
-                document.getElementById("message").value.trim();
-
-
-            if (!name || !email || !subject || !message) {
-
-                alert("Please fill in all the fields.");
-
-                return;
-
-            }
-
-
-            const mailSubject =
-                encodeURIComponent(subject);
-
-            const mailBody =
-                encodeURIComponent(
-                    `Name: ${name}\n\nEmail: ${email}\n\nMessage:\n${message}`
-                );
-
-
-            window.location.href =
-                `mailto:jeyasnekajs@gmail.com?subject=${mailSubject}&body=${mailBody}`;
-
-        });
-
-    }
-
-
-    /* =========================
+    /* =====================================================
        HERO VIDEO
-       ========================= */
+    ===================================================== */
 
     const heroVideo =
         document.querySelector(".hero-video");
+
 
     if (heroVideo) {
 
         heroVideo.muted = true;
 
+        heroVideo.setAttribute(
+            "playsinline",
+            ""
+        );
+
+
         const playVideo = () => {
 
-            const promise = heroVideo.play();
+            const promise =
+                heroVideo.play();
+
 
             if (promise !== undefined) {
 
-                promise.catch(() => {
-                    /* Browser may block autoplay */
-                });
+                promise.catch(() => {});
 
             }
 
         };
 
+
         playVideo();
+
+
+        heroVideo.addEventListener(
+            "loadeddata",
+            playVideo
+        );
 
     }
 
 
-    /* =========================
-       TOOL CAROUSEL
-       ========================= */
+
+    /* =====================================================
+       TOOLS - DUPLICATE FOR INFINITE SCROLL
+    ===================================================== */
 
     const toolsTrack =
         document.querySelector(".tools-track");
 
+
     if (toolsTrack) {
 
         const tools =
-            Array.from(toolsTrack.children);
+            Array.from(
+                toolsTrack.children
+            );
+
 
         tools.forEach(tool => {
 
             const clone =
                 tool.cloneNode(true);
+
+            clone.setAttribute(
+                "aria-hidden",
+                "true"
+            );
 
             toolsTrack.appendChild(clone);
 
@@ -283,23 +294,93 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =========================
-       SMOOTH BUTTON FEEDBACK
-       ========================= */
 
-    const buttons =
-        document.querySelectorAll(".btn");
+    /* =====================================================
+       CONTACT FORM
+    ===================================================== */
 
-    buttons.forEach(button => {
+    const contactForm =
+        document.getElementById(
+            "contact-form"
+        );
 
-        button.addEventListener("mouseenter", () => {
 
-            button.style.transition =
-                "all 0.35s ease";
+    if (contactForm) {
 
-        });
+        contactForm.addEventListener(
+            "submit",
+            event => {
 
-    });
+                event.preventDefault();
 
+
+                const name =
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                const subject =
+                    document
+                        .getElementById("subject")
+                        .value
+                        .trim();
+
+
+                const message =
+                    document
+                        .getElementById("message")
+                        .value
+                        .trim();
+
+
+                if (
+                    !name ||
+                    !email ||
+                    !subject ||
+                    !message
+                ) {
+
+                    alert(
+                        "Please fill in all the fields."
+                    );
+
+                    return;
+
+                }
+
+
+                const mailSubject =
+                    encodeURIComponent(
+                        subject
+                    );
+
+
+                const mailBody =
+                    encodeURIComponent(
+                        `Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`
+                    );
+
+
+                window.location.href =
+                    `mailto:jeyasnekajs@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+            }
+        );
+
+    }
 
 });
